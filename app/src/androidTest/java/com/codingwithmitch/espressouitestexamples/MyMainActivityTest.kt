@@ -7,6 +7,7 @@ import androidx.test.espresso.assertion.ViewAssertions.doesNotExist
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.internal.runner.junit4.AndroidJUnit4ClassRunner
+import com.codingwithmitch.espressouitestexamples.MainActivity.Companion.buildToastMessage
 import org.hamcrest.Matchers.not
 import org.junit.Assert.*
 import org.junit.Test
@@ -43,7 +44,7 @@ class MyMainActivityTest{
         onView(withId(R.id.text_name)).check(matches(withText(expectedName)))
 
 	// test is toast is displayed
-        onView(withText(buildToastMessage(NAME)))
+        onView(withText(buildToastMessage(expectedName)))
             .inRoot(ToastMatcher())
             .check(matches(isDisplayed()))
 
