@@ -42,5 +42,10 @@ class MyMainActivityTest{
         // confirm name is set
         onView(withId(R.id.text_name)).check(matches(withText(expectedName)))
 
+	// test is toast is displayed
+        onView(withText(buildToastMessage(NAME)))
+            .inRoot(ToastMatcher())
+            .check(matches(isDisplayed()))
+
     }
 }
